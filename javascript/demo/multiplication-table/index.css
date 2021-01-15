@@ -1,0 +1,56 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.text {
+  /* set by class name */
+  font-style: italic;
+  font-weight: bold;
+}
+
+#message {
+  /*set by id */
+  font-size: 50px;
+}
+
+.head-content {
+  text-align: center;
+  width: 100%;
+  max-width: 400;
+}
+.input {
+  margin: 30px;
+  height: 30px;
+  width: 50%;
+}
+
+.button {
+  height: 30px;
+  width: 50%;
+  background-color: aqua;
+}
+
+.bg-output {
+  text-align: center;
+  width: max-content;
+  height: 70px;
+  background-color: black;
+}
+
+.output {
+  height: 30px;
+  width: 50%;
+  background-color: aqua;
+}
+
+.result {
+  background-color: black;
+  color: white;
+  height: 30px;
+  width: 50%;
+  text-align: center;
+  align-content: center;
+  flex: content;
+}

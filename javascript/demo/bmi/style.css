@@ -1,0 +1,37 @@
+p {
+  font-size: 20px;
+}
+
+.form {
+  text-align: center;
+}
+.content{
+  float: left;
+  display: inline;
+}
+
+
+.button {
+  border: 1px solid #dfe1e5;
+  width: 15%;
+  height: 50px;
+  background-color: white;
+  font-size: 20px;
+  border-radius: 24px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.input {
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+
+  width: 20%;
+  height: 30px;
+  text-align: center;
+
+  padding: 10px;
+  margin-bottom: 20px;
+
+  font-size: 20px;
+}

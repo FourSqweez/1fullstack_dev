@@ -1,0 +1,12 @@
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .content {
+    color: white;
+    background-color: #333333;
+    text-align: center;
+    min-height: 400px;
+    padding: 20px;
+  }
