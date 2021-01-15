@@ -9,18 +9,18 @@ function countDown(n) {
 countDown(10);
 
 // Why/when should we use Recursion?
-//// 1. Shorter and more readable
-//// 2. A problem can be built off of sub-problems
+// 1. Shorter and more readable
+// 2. A problem can be built off of sub-problems
 
 // How to use Recursion?
 
-//// 1. Base case
-//// 2. Recursive case
+// 1. Base case
+// 2. Recursive case
 
 // f(1) = 1 => base case
 // f(2) = 2 * f(1)
 // f(3) = 3 * f(2)
-// (4) = 4 * f(3) => 24
+// f(4) = 4 * f(3) => 24
 
 function factorial(n) {
   if (n === 1) return 1;

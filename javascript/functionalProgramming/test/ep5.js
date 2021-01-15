@@ -22,21 +22,24 @@ const times = createTimes();
 times();
 times();
 times();
+counter = 10;
+times();
+console.log("outCounter:", counter);
 
-// Stateful functons
+// Stateful functions
 
 // function addFive(a) {
 //     return a + 5;
 //   }
-  
+
 //   function addTen(a) {
 //     return a + 10;
 //   }
 
-function createAdd(a){
-    return function(b){
-        return a + b;
-    }
+function createAdd(a) {
+  return function (b) {
+    return a + b;
+  };
 }
 
 const addFive = createAdd(5);
