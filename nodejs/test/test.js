@@ -1,11 +1,23 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+// const { menu1, specialMenu } = require('./ingredients');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+// specialMenu();
+// console.log(menu1);
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+//require + exports
+//common js
+
+// const Rabbit = require('./rabbit')
+
+// const rabbit1 = new Rabbit('Mimi','Netherland Dwarf')
+
+// console.log(rabbit1)
+
+//es6 module
+import Rabbit from './rabbit.js';
+import { menu1, specialMenu } from './ingredients.js';
+
+const rabbit1 = new Rabbit('Mimi', 'Netherland Dwarf');
+console.log(rabbit1);
+
+console.log(menu1);
+specialMenu();
