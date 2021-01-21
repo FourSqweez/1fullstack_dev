@@ -6,7 +6,6 @@ p {
   text-align: center;
 }
 .content{
-  float: left;
   display: inline;
 }
 
@@ -15,7 +14,7 @@ p {
   border: 1px solid #dfe1e5;
   width: 15%;
   height: 50px;
-  background-color: white;
+  background-color: rgb(95, 94, 94);
   font-size: 20px;
   border-radius: 24px;
   padding: 10px;
