@@ -1,50 +1,79 @@
-// (function (exports, require, module, __filename, __dirname) {
-const { sayHello, calculateVat } = require('./utils');
-
-sayHello();
-const vat7 = calculateVat(100, 7);
-console.log(vat7);
-
-console.log(__filename);
-console.log(__dirname);
-// });
-
-//Path
-
+const http = require('http');
 const path = require('path');
-
-console.log(path.basename(__filename));
-console.log(path.dirname(__filename));
-console.log(path.extname(__filename));
-console.log(path.parse(__filename)); //return object
-console.log(path.join(__dirname, 'utils.js'));
-
-//File System
 const fs = require('fs');
-//fs.writeFileSync(path.join(__dirname, 'data.txt'), 'Hello');
-// fs.writeFile(path.join(__dirname, 'data.txt'), 'Hello', () => {
-//     console.log('finished writing file') //async
-// })
+const moment = require('moment');
 
-console.log(fs.readFileSync(path.join(__dirname, 'data.txt'), 'utf-8'));
+function getPage(page) {
+  const filePath = path.join(__dirname, page);
+  return fs.readFileSync(filePath);
+}
 
-// OS
-const os = require('os');
-console.log(os.cpus());
-console.log(os.homedir());
-console.log(os.uptime());
+function handleFiles(req, res) {
+  const fileType = path.extname(req.url) || '.html';
+  if (fileType === '.html') {
+    res.setHeader('Content-Type', 'text/html');
+    res.writeHead(200);
 
-//Event
-const events = require('events');
+    if (req.url === '/') {
+      res.write(getPage('index.html'));
+    } else {
+      res.write(getPage(`${req.url}.html`));
+    }
+    res.end();
+  } else if (fileType === '.css') {
+    res.setHeader('Content-Type', 'text/css');
+    res.writeHead(200);
+    res.write(getPage(req.url));
+    res.end();
+  } else {
+    res.writeHead(404);
+    res.end();
+  }
+}
 
-const EventEmitter = events.EventEmitter;
-const connect = new EventEmitter();
+function getData(url) {
+  let data;
+  if (url === '/apis/users') {
+    data = [
+      {
+        name: 'Four',
+      },
+      {
+        name: 'Fair',
+      },
+    ];
+  } else if (url === '/apis/posts') {
+    data = [
+      {
+        title: 'A',
+        publishedDate: moment().startOf('day').fromNow(), //เริ่มต้นวันนี้จนถึงตอนนี้เป็นเวลาเท่าไหร่
+      },
+      {
+        title: 'B',
+        publishedDate: moment().set('month', 1).startOf('day').fromNow(),
+      },
+    ];
+  }
+  return data;
+}
 
-connect.on('online', () => {
-  console.log('A new user has connected');
-});
+function handleApis(req, res) {
+  let data = getData(req.url);
 
-connect.emit('online');
-connect.emit('online');
-connect.emit('online');
-
+  if (data) {
+    res.setHeader('Content-Type', 'application/json');
+    res.write(JSON.stringify(data));
+  } else {
+    res.writeHead(404);
+  }
+  res.end();
+}
+http
+  .createServer((req, res) => {
+    if (req.url.startsWith('/apis/')) {
+      handleApis(req, res);
+    } else {
+      handleFiles(req, res);
+    }
+  })
+  .listen(8080);

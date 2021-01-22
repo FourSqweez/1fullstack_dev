@@ -1,0 +1,64 @@
+* {
+  /*** ทำให้คำนวณ margin กับ padding ได้ง่ายขึ้น */
+  box-sizing: border-box;
+}
+
+body {
+  /*** ลบค่าขอบ default ออก */
+  margin: 0;
+}
+
+a {
+  /*** ไม่มีเส้นใต้ */
+  text-decoration: none;
+}
+
+header {
+  color: white; /*** สีข้อความ*/
+  background: #353535; /*** สีขพื้นหลัง*/
+
+  font-size: 1.2 rem; /*** ขนาดข้อความ*/
+  padding: 1rem 1.5rem; /*** ขอบ (1.5 = ซ้าย ขวา) */
+
+  display: flex; /*** ทำให้เรียงในแนวนอน และขยายสุดขอบ*/
+  justify-content: space-between; /*** ย้ายตัวอื่นไปอยู่ขวาสุด*/
+}
+
+header > ul {
+  display: flex; /*** ทำให้เรียงในแนวนอน และขยายสุดขอบ*/
+  list-style: none; /*** ลบตัว default ออก ไม่ให้มีตัว bullet นำหน้า*/
+  margin: 0;
+}
+
+header > ul a {
+  color: white;
+  padding-right: 2rem;
+}
+
+main {
+  margin: 0 auto; /* ** เพื่อใหมันจัดกลาง */
+  max-width: 1140px;
+}
+
+footer {
+  color: white; /*** สีข้อความ*/
+  background: #353535; /*** สีขพื้นหลัง*/
+
+  font-size: 1.2 rem; /*** ขนาดข้อความ*/
+  padding: 1rem 1.5rem; /*** ขอบ (1.5 = ซ้าย ขวา) */
+
+  display: flex;
+  justify-content: space-between;
+
+  /*** ทำให้ footer ลงไปอยู่ข้างล่าง*/
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  /*** ทำให้ footer ลงไปอยู่ข้างล่าง*/
+}
+
+footer > span {
+  margin: 0 auto; /* ** เพื่อใหมันจัดกลาง */
+}
